@@ -5,9 +5,9 @@ import data.Book;
 import data.Library;
 
 public class LibraryControl {
-	public final int exit=0;
-	public final int addBook=1;
-	public final int printBooks=2;
+	public static final int EXIT=0;
+	public static final int ADD_BOOK=1;
+	public static final int PRINT_BOOKS=2;
 
 	private DataReader dataReader;  // zmienna do komunikacji z u¿ytkownikiem
 	
@@ -21,12 +21,12 @@ public class LibraryControl {
 	public void controlLoop() {
 		int option;
 		printOptions();
-		while ((option = dataReader.getInt()) != exit) {
+		while ((option = dataReader.getInt()) != EXIT) {
 			switch (option) {
-			case addBook:
+			case ADD_BOOK:
 				addBook();
 				break;
-			case printBooks:
+			case PRINT_BOOKS:
 				printBooks();
 				break;
 			default:
@@ -40,9 +40,9 @@ public class LibraryControl {
 	
 	private void printOptions() {
         System.out.println("Wybierz opcjê: ");
-        System.out.println("0 - wyjœcie z programu");
-        System.out.println("1 - dodanie nowej ksi¹¿ki");
-        System.out.println("2 - wyœwietl dostêpne ksi¹¿ki");
+        System.out.println(EXIT +" - wyjœcie z programu");
+        System.out.println(ADD_BOOK +" - dodanie nowej ksi¹¿ki");
+        System.out.println(PRINT_BOOKS +" - wyœwietl dostêpne ksi¹¿ki");
 	}
 	
 	private void addBook() {
