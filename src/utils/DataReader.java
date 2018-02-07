@@ -10,9 +10,17 @@ public class DataReader {
 	public DataReader() {
 		sc = new Scanner(System.in);
 	}
+	
+	public int getInt() {
+		int number = sc.nextInt();
+		sc.nextLine();
+		return number;
+	}
+	
 	public void close() {
 		sc.close();
 	}
+	
 	public Book readAndCreateBook() {
 		System.out.println("Tytu³: ");
 		String title = sc.nextLine();
