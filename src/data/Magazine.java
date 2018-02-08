@@ -24,15 +24,44 @@ public void setLanguage(String language) {
 }
 
 public Magazine(String title, String publisher, String language, int year, int month, int day) {
-	setTitle(title);
-	setPublisher(publisher);
+
+	super(year,title,publisher);
 	setLanguage(language);
-	setYear(year);
 	setMont(month);
 	setDay(day);
 }
-public void printInfo() {
-	String info= getTitle() +"; "+ getPublisher()+"; "+getYear()+"-"+getMont()+"-"+getDay()+"; "+getLanguage();
-	System.out.println(info);
+@Override
+public String toString() {
+	return getTitle() +"; "+ getPublisher()+"; "+getYear()+"-"+getMont()+"-"+getDay()+"; "+getLanguage();
 }
+@Override
+public int hashCode() {
+	final int prime = 31;
+	int result = super.hashCode();
+	result = prime * result + day;
+	result = prime * result + ((language == null) ? 0 : language.hashCode());
+	result = prime * result + mont;
+	return result;
+}
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	if (!super.equals(obj))
+		return false;
+	if (getClass() != obj.getClass())
+		return false;
+	Magazine other = (Magazine) obj;
+	if (day != other.day)
+		return false;
+	if (language == null) {
+		if (other.language != null)
+			return false;
+	} else if (!language.equals(other.language))
+		return false;
+	if (mont != other.mont)
+		return false;
+	return true;
+}
+
 }
