@@ -32,7 +32,19 @@ public Magazine(String title, String publisher, String language, int year, int m
 }
 @Override
 public String toString() {
-	return getTitle() +"; "+ getPublisher()+"; "+getYear()+"-"+getMont()+"-"+getDay()+"; "+getLanguage();
+    StringBuilder print = new StringBuilder(32);
+    print.append(getTitle());
+    print.append("; ");
+    print.append(getPublisher());
+    print.append("; ");
+    print.append(getYear());
+    print.append("; ");
+    print.append(getMont());
+    print.append("; ");
+    print.append(getDay());
+    print.append("; ");
+    print.append(getLanguage());
+    return print.toString();
 }
 @Override
 public int hashCode() {
